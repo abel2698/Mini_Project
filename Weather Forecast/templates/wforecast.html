@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Weather Forecasting</title>
+
+		<!-- Loading third party fonts -->
+		<link rel="stylesheet" href="{{ url_for('static',filename='/css/style.css') }}">
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="{{ url_for('static',filename='/fonts/font-awesome.min.css') }}" rel="stylesheet" >
+	</head>
+
+	<body>
+		<div class="site-content">
+			<div class="site-header">
+				<div class="container">
+
+					<!-- Default snippet for navigation -->
+					<a href="http://127.0.0.1:5000" class="branding">
+						<img src="{{ url_for('static',filename='/images/logo.png') }}" alt="" class="logo">
+												<div class="logo-type">
+													<h1 class="site-title">Weather Forecast</h1>
+													<small class="site-description"></small>
+												</div></a>
+
+				</div>
+			</div> <!-- .site-header -->
+
+			<main class="main-content">
+				<div class="container">
+					<div class="breadcrumb">
+
+						<div class="row">
+							<div class="col-md-4">
+								<h2 class="section-title">Application features & uses</h2>
+								<ul class="arrow-feature">
+									<li>
+										<h3>Accurate and detailed forecasts</h3>
+										<p> A seven-day forecast can accurately predict the weather about 80 percent of the time and a five-day forecast can accurately predict the weather approximately 90 percent of the time. However, a 10-day—or longer—forecast is only right about half the time.</p>
+									</li>
+									<li>
+										<h3>Determine the upcoming time series events</h3>
+										<p>Forecasts based on temperature and precipitation are important to agriculture, and therefore to traders within commodity markets.</p>
+									</li>
+									<li>
+										<h3>Forecasting enables planning properly</h3>
+										<p>Weather warnings are important forecasts because they are used to protect life and property.</p>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-4">
+								<h2 class="section-title">Weather analyssis</h2>
+								<ul class="arrow-list">
+									<li><a href="#">Monitor for disruptive environmental conditions such as severe weather, wildfires, flooding and air quality and send alerts when detected</a></li>
+									<li><a href="#">Predict potential impacts of climate change and weather across the business using climate risk analytics</a></li>
+									<li><a href="#">Gain insights into potential operational disruptions and prioritize mitigation and response efforts</a></li>
+									<li><a href="#">Measure and report on environmental initiatives and operationalize carbon accounting, while reducing the burden of this reporting on procurement and operations teams</a></li>
+									<!-- <li><a href="#"></a></li>
+									<li><a href="#"></a></li> -->
+								</ul>
+							</div>
+							<div class="col-md-4">
+								<h2 class="section-title">Awesome Photos</h2>
+								<div class="photo-grid">
+									<a href="#"><img src="{{ url_for('static',filename='/images/1.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/2.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/3.jpg') }}" alt="#"></a>									<a href="#"><img src="{{ url_for('static',filename='/images/5.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/6.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/7.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/8.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/9.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/10.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/11.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/3.jpg') }}" alt="#"></a>									<a href="#"><img src="{{ url_for('static',filename='/images/5.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/6.jpg') }}" alt="#"></a>
+									<a href="#"><img src="{{ url_for('static',filename='/images/12.jpg') }}" alt="#"></a>
+								</div>
+							</div>
+
+					</div></div><br><br>&nbsp;&nbsp;&nbsp;
+
+						<a href="http://127.0.0.1:5000">Home</a>&nbsp;<img src="{{ url_for('static',filename='/images/arrow-gray.png') }}" >&nbsp;&nbsp;
+						<span>Forecasting The Weather</span>
+					</div>
+				</div><br><br>
+			</main>
+
+			<div class="container">
+					<form class="contact-form" action="{{ url_for('predict') }}" method="POST">
+								<div class="row">
+									<div class="col-md-6"><input type="integer" name="rainfall" placeholder="Enter Todays Rainfall Level..." required></div>
+									<div class="col-md-6"><input  name="humidity" placeholder="Enter Todays Humidity Level..." required></div>
+									<div class="col-md-6"><input  name="rain_today" placeholder="Does It Rain Today?...(True/False)" required></div>
+									<div class="col-md-6"><input  name="pressure" placeholder="Enter Todays Pressure Level..." required></div>
+								</div><br>
+
+								<div class="left"><input type="submit"></div>
+								<div class="text-right">
+								<a href="http://127.0.0.1:5000">Reset the page</a>
+								</div>
+								
+					<br><br>
+					</div></div>
+				</form>
+					<div mt-4>
+						<h2 style="font-family: 'Ubuntu Mono', monospace; margin-left: 75px;">{{ prediction }}</h2>
+					</div>
+
+					</div>
+
+				</div>
+			</footer> <!-- .site-footer -->
+		</div>
+		<footer class="site-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-md-offset-1">
+						<div class="social-links">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-google-plus"></i></a>
+							<a href="#"><i class="fa fa-pinterest"></i></a>
+						</div>
+					</div>
+				</div>
+		</div>
+		</footer> 
+	</div>
+	
+	<script src="{{ url_for('static',filename='/js/jquery-1.11.1.min.js') }}"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+	<script src="{{ url_for('static',filename='/js/plugins.js') }}"></script>
+	<script src="{{ url_for('static',filename='/js/app.js') }}"></script>
+
+	</body>
+
+</html>
